@@ -38,6 +38,9 @@
 
                             <a href="/register" class="btn btn-outline-danger">CREATE NEW</a>
                         </div>
+                        <div>
+                            <a href="{{route('femail')}}">Forgot password?</a>
+                        </div>
 
                     </form>
                 </div>

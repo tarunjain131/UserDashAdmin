@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomController;
+use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,13 @@ Route::get('login',[CustomController::class,'index'])->name('login');
 Route::post('custom-login', [CustomController::class, 'customLogin'])->name('loginCustom');
 Route::get('register', [CustomController::class, 'registration'])->name('register');
 Route::post('custom-registration', [CustomController::class, 'customRegistration'])->name('registrationCustom');
+
+Route::get('femail',[CustomController::class,'femail'])->name('femail');
+Route::post('femail',[CustomController::class,'validate_email'])->name('validate.email');
+Route::get('fpassword/{token}',[CustomController::class, 'forgotPasswordForm'])->name('forgot.password');
+Route::post('fpassword',[CustomController::class,'newPassword'])->name('new.password');
+
+
 Route::get('logout', [CustomController::class, 'logout'])->name('logout');
 Route::get('dashboard', [CustomController::class, 'dashboard'])->name('dashboard');
 Route::get('approval',[CustomController::class,'approval'])->middleware(['auth','approved'])->name('approval');

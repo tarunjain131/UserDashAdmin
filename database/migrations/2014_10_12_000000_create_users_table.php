@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('status')->default(false);
             $table->string('role')->default(false);
             $table->timestamp('approved_at')->nullable();
+            $table->string('token', 60);
             $table->rememberToken();
             $table->timestamps();
         });
